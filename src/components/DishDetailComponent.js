@@ -8,6 +8,21 @@ class DishDetail extends Component{
     }
 
     render(){
+        if(this.props.selectedDish != null){
+            return (
+                <div className="row">
+                    <div className="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 m-1">
+                        {this.renderDish()}
+                    </div>
+                    <div className="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 m-1">
+                        {this.renderComments()}
+                    </div>
+                </div>
+            );
+        }
+        else return <div></div>
+    }
+    renderDish(){
         return(
             <Card>
                 <CardImg width="100%" src={this.props.selectedDish.image} alt={this.props.selectedDish.name}></CardImg>
@@ -18,7 +33,28 @@ class DishDetail extends Component{
             </Card>
         );
     }
-
+    renderComments() {
+        if(this.props.selectedDish != null){
+            const comms = this.props.selectedDish.comments.map(x=>{
+                return (
+                    <div key={x.id}>
+                        <li>{x.comment}</li>
+                        <li>****{x.author} {x.date}***</li>
+                        <li></li>
+                    </div>
+                );
+            })
+            return (
+                <div>
+                    <h4>Comments</h4>
+                    <ul className="list-unstyled">
+                        {comms}
+                    </ul>
+                </div>
+            );
+        }
+        else return <div></div>
+    }
 }
 
 export default DishDetail;
