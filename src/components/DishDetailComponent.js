@@ -37,10 +37,12 @@ class DishDetail extends Component{
         if(this.props.selectedDish != null){
             const comms = this.props.selectedDish.comments.map(x=>{
                 return (
-                    <div key={x.id}>
-                        <li>{x.comment}</li>
-                        <li>****{x.author} {x.date}***</li>
-                        <li></li>
+                    <div>
+                        <li>
+                            <p>{x.comment}</p>
+                            <p> <em>{x.author} {x.date}</em></p>
+                            <p>*********</p>
+                        </li>
                     </div>
                 );
             })
