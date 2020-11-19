@@ -37,10 +37,10 @@ class DishDetail extends Component{
         if(this.props.selectedDish != null){
             const comms = this.props.selectedDish.comments.map(x=>{
                 return (
-                    <div>
+                    <div key={x.id}>
                         <li>
                             <p>{x.comment}</p>
-                            <p> <em>{x.author} {x.date}</em></p>
+                            <p> <em>{x.author} {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(x.date)))}</em></p>
                             <p>*********</p>
                         </li>
                     </div>
