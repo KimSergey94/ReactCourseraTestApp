@@ -45,10 +45,10 @@ const DishDetail = (props) => {
     if(props.selectedDish != null){
         return (
             <div className="row">
-                <div className="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 m-1">
+                <div className="col-12 col-md-5 col-lg-5 col-xl-5 m-1">
                     <RenderDish dish={props.selectedDish}></RenderDish>
                 </div>
-                <div className="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 m-1">
+                <div className="col-12 col-md-5 col-lg-5 col-xl-5 m-1">
                     <RenderComments comments={props.selectedDish.comments}></RenderComments>
                 </div>
             </div>
